@@ -1,5 +1,16 @@
-function Login(){
+function Login() {
+
+  function handle () {
+    return true;
+  }
+
   return (
-    <h1>Login</h1>
-  )  
+      <Card
+        bgcolor="info"
+        header="Account Login"
+        login={handle}
+        submitButtonLogin="Welcome to the Bad Bank!"
+      
+      />
+  )
 }

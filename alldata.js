@@ -1,9 +1,30 @@
 function AllData(){
   const ctx = React.useContext(UserContext);
+
+  let users = [...ctx.users];
+  console.log(JSON.stringify(users));
+  
+  function userNumber(i) {
+    return (`User Account ${i+1} Table`);
+  }
+
+  function userInfo(user) {
+    return [user.name, user.email, user.password, user.balance];
+  }
+  
   return (
     <>
-    <h5>All Data in Store</h5>
-    {JSON.stringify(ctx)}<br/>
+    {users.map((user, i) => (
+      <Card
+      index = {i}
+      key = {i} 
+      bgcolor="info"
+      txtcolor="white"
+      header="All Data Summary"
+      text={userNumber(i)}
+      allData={userInfo(user)}
+      /> )
+    )}
     </>
-  );
+  )
 }
